@@ -9,7 +9,7 @@
         name: net-tools
         update_cache: yes
         cache_valid_time: 3600
-      changed_when: ansible_os_family == Debian
+      when: ansible_os_family == 'Debian'
   tasks:
     - name: "Include buluma.mosquitto"
       ansible.builtin.include_role:
