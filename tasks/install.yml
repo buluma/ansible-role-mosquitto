@@ -1,0 +1,82 @@
+---
+
+# - name: install packages
+#   packages:
+#     name: python3-apt
+#     state: present
+
+- name: add Mosquitto repository
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: ppa:mosquitto-dev/mosquitto-ppa
+    state: present
+    update_cache: yes
+    validate_certs: no
+
+- name: ensure Mosquitto service is installed
+  become: yes
+  ansible.builtin.apt:
+    name: "mosquitto={{ mosquitto_version }}"
+    state: present
+
+- name: ensure Mosquitto clients is installed
+  become: yes
+  ansible.builtin.apt:
+    name: "mosquitto-clients={{ mosquitto_version }}"
+    state: present
+  when: mosquitto_install_clients
+
+# - name: install Pip for boto
+#   become: yes
+#   ansible.builtin.apt:
+#     name: python-pip
+#   when: mosquitto_aws_enabled
+
+- name: install boto
+  become: yes
+  ansible.builtin.pip:
+    name: boto
+  when: mosquitto_aws_enabled
+
+- name: add ulimits to Upstart config
+  become: yes
+  ansible.builtin.lineinfile:
+    line: "limit nofile {{ mosquitto_limits_nofile_soft }} {{ mosquitto_limits_nofile_hard }}"
+    dest: /etc/init/mosquitto.conf
+    regexp: "^limit nofile"
+    create: yes
+  when: ansible_service_mgr == 'upstart'
+  notify:
+    - restart mosquitto
+
+- name: locate Mosquitto SystemdD conf
+  shell: |
+    set -o pipefail
+    dpkg -L mosquitto | grep mosquitto.service
+  args:
+    executable: /bin/bash
+  register: mosquitto_systemd_conf_file_location
+  changed_when: no
+  when: ansible_service_mgr == 'systemd'
+
+- name: add Mosquitto SystemD settings
+  become: yes
+  community.general.ini_file:
+    option: "{{ item.key }}"
+    path: "{{ mosquitto_systemd_conf_file_location.stdout }}"
+    section: Service
+    value: "{{ item.value }}"
+  with_dict:
+    LimitNOFILE: "{{ mosquitto_limits_nofile_hard }}"
+  register: mosquitto_systemd_conf_file
+  when: ansible_service_mgr == 'systemd'
+
+- name: ensure Mosquitto SystemD service is updated
+  become: yes
+  ansible.builtin.systemd:
+    daemon_reload: yes
+  when:
+    - ansible_service_mgr == "systemd"
+    - mosquitto_systemd_conf_file.changed
+  tags:
+    - skip_ansible_lint

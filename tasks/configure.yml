@@ -1,0 +1,41 @@
+---
+
+- name: download files from S3
+  become: yes
+  aws_s3:
+    bucket: "{{ item.bucket }}"
+    dest: "{{ item.dest }}"
+    mode: get
+    object: "{{ item.path }}"
+    region: "{{ mosquitto_aws_region }}"
+  with_items: "{{ mosquitto_aws_s3_files }}"
+  when:
+    - mosquitto_aws_enabled | bool
+    - mosquitto_aws_s3_files | length > 0
+
+- name: secure downloaded S3 files
+  become: yes
+  ansible.builtin.file:
+    mode: "{{ item.mode }}"
+    path: "{{ item.dest }}"
+  with_items: "{{ mosquitto_aws_s3_files }}"
+  when:
+    - mosquitto_aws_enabled | bool
+    - mosquitto_aws_s3_files | length > 0
+
+- name: setup password file
+  become: yes
+  ansible.builtin.template:
+    src: mosquitto.passwd.j2
+    dest: "{{ mosquitto_password_file }}"
+  when: mosquitto_password_file is not none
+  notify:
+    - restart mosquitto
+
+- name: setup local config
+  become: yes
+  ansible.builtin.template:
+    src: mosquitto.local.conf.j2
+    dest: /etc/mosquitto/conf.d/mosquitto.local.conf
+  notify:
+    - restart mosquitto

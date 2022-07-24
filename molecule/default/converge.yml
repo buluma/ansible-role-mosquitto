@@ -1,0 +1,14 @@
+---
+- name: Converge
+  hosts: all
+  pre_tasks:
+    - name: Install net-tools
+      become: yes
+      apt:
+        name: net-tools
+        update_cache: yes
+        cache_valid_time: 3600
+  tasks:
+    - name: "Include buluma.mosquitto"
+      ansible.builtin.include_role:
+        name: "buluma.mosquitto"

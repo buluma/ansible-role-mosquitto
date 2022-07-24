@@ -1,0 +1,11 @@
+---
+
+- name: install mosquitto
+  include_tasks: install.yml
+  tags:
+    - build
+
+- name: configure mosquitto
+  include_tasks: configure.yml
+  tags:
+    - configure

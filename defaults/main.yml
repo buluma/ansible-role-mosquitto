@@ -1,0 +1,14 @@
+---
+# defaults file for mosquitto
+mosquitto_aws_enabled: no
+mosquitto_aws_region: eu-west-1
+mosquitto_aws_s3_files: []
+mosquitto_install_clients: no
+mosquitto_limits_nofile_hard: 65535
+mosquitto_limits_nofile_soft: 65535
+mosquitto_password_file: ~
+mosquitto_settings:
+  allow_anonymous: yes
+  persistence: yes
+mosquitto_user_list: {}
+mosquitto_version: 1.6.*

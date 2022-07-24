@@ -1,0 +1,22 @@
+---
+galaxy_info:
+  author: buluma
+  role_name: mosquitto
+  description: Install and configure Eclipse Mosquitto
+  company: ShadowNet
+  license: Apache-2.0
+
+  min_ansible_version: "2.1"
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - eclipse
+    - mosquitto
+
+dependencies: []
