@@ -49,12 +49,6 @@ jobs:
             tag: "bookworm"
           - image: "docker-ubuntu2004-ansible"
             tag: "latest"
-          - image: "docker-ubuntu2104-ansible"
-            tag: "latest"
-          - image: "docker-ubuntu1804-ansible"
-            tag: "latest"
-          - image: "docker-ubuntu2204-ansible"
-            tag: "latest"
     steps:
       - name: checkout
         uses: actions/checkout@v3
