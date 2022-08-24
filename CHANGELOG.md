@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.1](https://github.com/buluma/ansible-role-mosquitto/tree/0.1.1) (2022-08-24)
+
+[Full Changelog](https://github.com/buluma/ansible-role-mosquitto/compare/0.1.0...0.1.1)
+
 ## [0.1.0](https://github.com/buluma/ansible-role-mosquitto/tree/0.1.0) (2022-07-24)
 
 [Full Changelog](https://github.com/buluma/ansible-role-mosquitto/compare/e88592ee450f607796290037868fd3ef6470fdc3...0.1.0)
