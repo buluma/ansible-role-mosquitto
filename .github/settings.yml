@@ -5,4 +5,4 @@
 repository:
   description: Install and configure Eclipse Mosquitto
   homepage: https://buluma.github.io/
-  topics: eclipse, mosquitto, ansible, molecule, tox, playbook, hacktoberfest
+  topics: eclipse, mosquitto, ansible, molecule, tox, playbook
