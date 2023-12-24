@@ -1,10 +1,10 @@
-# [Ansible role mosquitto](#mosquitto)
+# Ansible role [mosquitto](https://galaxy.ansible.com/ui/standalone/roles/buluma/mosquitto/documentation)
 
 Install and configure Eclipse Mosquitto
 
-|GitHub|Version|Issues|Pull Requests|
-|------|-------|------|-------------|
-|[![github](https://github.com/buluma/ansible-role-mosquitto/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-mosquitto/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-mosquitto.svg)](https://github.com/buluma/ansible-role-mosquitto/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-mosquitto.svg)](https://github.com/buluma/ansible-role-mosquitto/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-mosquitto.svg)](https://github.com/buluma/ansible-role-mosquitto/pulls/)|
+|GitHub|Version|Issues|Pull Requests|Downloads|
+|------|-------|------|-------------|---------|
+|[![github](https://github.com/buluma/ansible-role-mosquitto/actions/workflows/molecule.yml/badge.svg)](https://github.com/buluma/ansible-role-mosquitto/actions/workflows/molecule.yml)|[![Version](https://img.shields.io/github/release/buluma/ansible-role-mosquitto.svg)](https://github.com/buluma/ansible-role-mosquitto/releases/)|[![Issues](https://img.shields.io/github/issues/buluma/ansible-role-mosquitto.svg)](https://github.com/buluma/ansible-role-mosquitto/issues/)|[![PullRequests](https://img.shields.io/github/issues-pr-closed-raw/buluma/ansible-role-mosquitto.svg)](https://github.com/buluma/ansible-role-mosquitto/pulls/)|[![Ansible Role](https://img.shields.io/ansible/role/d/buluma/mosquitto)](https://galaxy.ansible.com/ui/standalone/roles/buluma/mosquitto/documentation)|
 
 ## [Example Playbook](#example-playbook)
 
@@ -111,9 +111,7 @@ If you find issues, please register them in [GitHub](https://github.com/buluma/a
 
 ## [Author Information](#author-information)
 
-[buluma](https://buluma.github.io/)
+[Shadow Walker](https://buluma.github.io/)
 
-
-### [Special Thanks](#special-thanks)
 
 Template inspired by [Robert de Bock](https://github.com/robertdebock)
