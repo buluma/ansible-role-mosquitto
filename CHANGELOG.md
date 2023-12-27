@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased](https://github.com/buluma/ansible-role-mosquitto/tree/HEAD)
+
+[Full Changelog](https://github.com/buluma/ansible-role-mosquitto/compare/0.1.1...HEAD)
+
+**Closed issues:**
+
+- Update buluma/todo-to-issue-action@v1.0.1 @buluma [\#6](https://github.com/buluma/ansible-role-mosquitto/issues/6)
+
 ## [0.1.1](https://github.com/buluma/ansible-role-mosquitto/tree/0.1.1) (2022-08-24)
 
 [Full Changelog](https://github.com/buluma/ansible-role-mosquitto/compare/0.1.0...0.1.1)
